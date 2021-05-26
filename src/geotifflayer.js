@@ -226,6 +226,20 @@ const GeoRasterLayer = L.GridLayer.extend({
     const yMinOfTileInMapCRS = boundsOfTile.getSouth();
     const yMaxOfTileInMapCRS = boundsOfTile.getNorth();
 
+setTimeout(async () => {
+	this.options.georaster.image.readRasters({
+	  bbox: [xMinOfTileInMapCRS, yMinOfTileInMapCRS, xMaxOfTileInMapCRS, yMaxOfTileInMapCRS],
+	  resX: 0.1,
+	  resY: 0.1
+	}).then(imgd => {
+		console.log('vvvvvvvvvv:', imgd, coords, xMinOfTileInMapCRS, yMinOfTileInMapCRS, xMaxOfTileInMapCRS, yMaxOfTileInMapCRS);
+		var imgData = new ImageData(new Uint8ClampedArray(imgd[0].buffer), imgd.width, imgd.height);
+		context.putImageData(imgData,0,0);
+	});
+	done && done('', tile);
+}, 0);
+return tile;
+
     let rasterPixelsAcross = 0;
     let rasterPixelsDown = 0;
     if (inSimpleCRS || this.projection === EPSG4326) {
