@@ -1,8 +1,8 @@
 import 'leaflet/dist/leaflet.css';
 import './index.css';
 import L from 'leaflet';
-import GeoRasterLayer from './geotifflayer.js';
-//import 'georaster/src/index.js';
+// import GeoRasterLayer from './geotifflayer.js';
+import GeoRaster from './GeoRaster.js';
 
 window.addEventListener('load', async () => {
     let map = L.map('map').setView([34.62, 48.26], 3);
@@ -14,8 +14,9 @@ window.addEventListener('load', async () => {
 
 	fetch(url_to_geotiff_file)
         .then(response => response.arrayBuffer())
-        .then(arrayBuffer => {
-            console.log("arrayBuffer:", window.parseGeoraster, arrayBuffer);
+        .then(arrayBuffer => {            
+            let gr = new GeoRaster(arrayBuffer);
+            gr.initialize(true);
             /*
           GeoRaster.parseGeoraster(arrayBuffer).then(georaster => {
             console.log("georaster:", georaster);
