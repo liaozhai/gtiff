@@ -270,6 +270,9 @@ const GeoRasterLayer = L.GridLayer.extend({
     const widthOfSampleInScreenPixels = this.tileWidth / numberOfSamplesAcross;
     const widthOfSampleInScreenPixelsInt = Math.ceil(widthOfSampleInScreenPixels);
 
+console.log('vvvvvvvvvv:', coords, xMinOfTileInMapCRS, yMinOfTileInMapCRS, xMaxOfTileInMapCRS, yMaxOfTileInMapCRS);
+// console.log('v1:', topLeft, topRight, bottomLeft, bottomRight);
+
     const map = this.getMap();
     const tileSize = this.getTileSize();
 
