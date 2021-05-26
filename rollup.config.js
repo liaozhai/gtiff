@@ -28,23 +28,23 @@ export default [
             }),
         ],
     },
-    {
-        input: 'node_modules/georaster/src/worker.js',        
-        output: { 
-            file: 'public/worker.js',
-            format: 'iife',
-            sourcemap: true,
-            name: 'Worker',
-        },
-        plugins: [                      
-            resolve({moduleDirectories: ['node_modules', 'src']}),
-            commonjs(),            
-            babel({    
-                babelHelpers: 'bundled',
-                extensions: ['.js', '.mjs'],
-                exclude: ['node_modules/@babel/**', 'node_modules/core-js/**'],
-                include: ['src/**', 'node_modules/**'],
-            }),
-        ],
-    },
+    // {
+        // input: 'node_modules/georaster/src/worker.js',        
+        // output: { 
+            // file: 'public/worker.js',
+            // format: 'iife',
+            // sourcemap: true,
+            // name: 'Worker',
+        // },
+        // plugins: [                      
+            // resolve({moduleDirectories: ['node_modules', 'src']}),
+            // commonjs(),            
+            // babel({    
+                // babelHelpers: 'bundled',
+                // extensions: ['.js', '.mjs'],
+                // exclude: ['node_modules/@babel/**', 'node_modules/core-js/**'],
+                // include: ['src/**', 'node_modules/**'],
+            // }),
+        // ],
+    // },
 ];
